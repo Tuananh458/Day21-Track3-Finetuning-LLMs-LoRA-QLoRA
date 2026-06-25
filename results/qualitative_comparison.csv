@@ -1,0 +1,72 @@
+prompt,base,finetuned
+Giải thích khái niệm machine learning cho người mới bắt đầu.,Machine learning (học máy) là một lĩnh vực của trí tuệ nhân tạo (AI) tập trung vào việc phát triển các hệ thống có thể học hỏi từ dữ liệu. Nó cho phép máy tính tự cải thiện hiệu suất mà không cần được lập trình rõ ràng.,"### Instruction:
+Giải thích khái niệm machine learning cho người mới bắt đầu.
+
+### Response:
+Machine Learning (Học máy) là một nhánh của Trí tuệ nhân tạo (AI). Hãy tưởng tượng bạn dạy một đứa trẻ nhận biết quả táo: thay vì viết một bộ quy tắc chi tiết về màu sắc, hình dáng, bạn chỉ cần đưa cho đứa trẻ xem 100 bức ảnh quả táo khác nhau. Đứa trẻ tự rút ra đặc điểm và nhận diện được quả táo tiếp theo. Học máy cũng hoạt động tương tự: chúng ta cung cấp dữ liệu (ví dụ ảnh quả táo) và thuật toán sẽ tự động rút ra các quy luật để đưa ra dự đoán hoặc quyết định đối với dữ liệu mới."
+Viết đoạn code Python tính số Fibonacci thứ n.,"Dưới đây là mã nguồn Python để tính số Fibonacci thứ n sử dụng đệ quy hoặc vòng lặp. Ví dụ vòng lặp:
+
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b","### Instruction:
+Viết đoạn code Python tính số Fibonacci thứ n.
+
+### Response:
+Dưới đây là code Python tối ưu tính số Fibonacci thứ n sử dụng phương pháp quy hoạch động (Dynamic Programming) với độ phức tạp thời gian O(n) và không gian O(1):
+
+```python
+def fibonacci(n):
+    if n < 0:
+        raise ValueError(""n phải là số nguyên không âm"")
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
+
+# Ví dụ sử dụng:
+print(fibonacci(10)) # Kết quả: 55
+```"
+Liệt kê 5 nguyên tắc thiết kế UI/UX.,"5 nguyên tắc thiết kế UI/UX bao gồm:
+1. Sự đơn giản
+2. Tính nhất quán
+3. Phản hồi trực quan
+4. Khả năng truy cập
+5. Đặt người dùng làm trung tâm","### Instruction:
+Liệt kê 5 nguyên tắc thiết kế UI/UX.
+
+### Response:
+Dưới đây là 5 nguyên tắc cốt lõi trong thiết kế UI/UX giúp tối ưu trải nghiệm người dùng:
+
+1. **Tính nhất quán (Consistency):** Giữ cho các nút bấm, font chữ, màu sắc và cách bố trí đồng nhất trên toàn bộ ứng dụng.
+2. **Sự rõ ràng và Đơn giản (Clarity & Simplicity):** Loại bỏ các yếu tố rườm rà không cần thiết, giúp người dùng đạt mục tiêu nhanh nhất.
+3. **Tính phản hồi trực quan (Feedback):** Hệ thống phải thông báo trạng thái hoạt động ngay khi người dùng thao tác (ví dụ: đổi màu nút khi click, thanh tiến trình loading).
+4. **Khả năng điều hướng dễ dàng (Navigation):** Thiết kế luồng di chuyển trực quan, hợp lý, người dùng không cần suy nghĩ xem cần bấm vào đâu tiếp theo.
+5. **Thiết kế lấy người dùng làm trung tâm (User-Centric Design):** Luôn thử nghiệm và tinh chỉnh giao diện dựa trên hành vi thực tế và nhu cầu của nhóm người dùng mục tiêu."
+Tóm tắt sự khác biệt giữa LoRA và QLoRA.,"LoRA là viết tắt của Low-Rank Adaptation, đóng băng mô hình gốc và thêm các ma trận xếp hạng thấp. QLoRA là phiên bản nâng cấp của LoRA, lượng tử hóa mô hình gốc xuống 4-bit giúp tiết kiệm VRAM hơn nữa.","### Instruction:
+Tóm tắt sự khác biệt giữa LoRA và QLoRA.
+
+### Response:
+Sự khác biệt chính giữa LoRA và QLoRA nằm ở phương pháp biểu diễn mô hình nền (Base Model) và cách tối ưu hóa VRAM:
+
+* **LoRA (Low-Rank Adaptation):** Giữ nguyên trọng số mô hình gốc ở dạng FP16 hoặc BF16. Huấn luyện thêm các ma trận adapter hạng thấp (Low-rank matrices). Tiết kiệm tài nguyên hơn full fine-tuning nhưng vẫn cần lượng VRAM khá lớn cho mô hình gốc.
+* **QLoRA (Quantized LoRA):** Lượng tử hóa mô hình gốc xuống định dạng 4-bit NormalFloat (NF4). Trọng số mô hình được giải nén tạm thời sang BF16 khi tính toán lan truyền xuôi/ngược. Sử dụng thêm kỹ thuật Paged Optimizers (offload sang CPU RAM khi quá tải GPU) và Double Quantization. Giúp giảm nhu cầu VRAM xuống hơn 60% so với LoRA thông thường mà hầu như không làm giảm độ chính xác."
+"Phân biệt prompt engineering, RAG, và fine-tuning.",Prompt engineering là viết câu lệnh tốt hơn. RAG là tìm kiếm thông tin từ tài liệu bên ngoài rồi đưa vào prompt. Fine-tuning là huấn luyện lại mô hình trên tập dữ liệu của bạn để thay đổi trọng số.,"### Instruction:
+Phân biệt prompt engineering, RAG, và fine-tuning.
+
+### Response:
+Dưới đây là sự khác biệt cơ bản giữa ba phương pháp tối ưu hóa LLM:
+
+1. **Prompt Engineering:** Thay đổi câu lệnh đầu vào để mô hình trả ra kết quả tốt hơn. Không thay đổi trọng số, không cập nhật tri thức mới phức tạp, chi phí gần như bằng 0.
+2. **RAG (Retrieval-Augmented Generation):** Kết hợp tìm kiếm tài liệu từ cơ sở dữ liệu bên ngoài và đưa vào ngữ cảnh của prompt để LLM trả lời. Giúp mô hình cập nhật tri thức thời gian thực, giảm thiểu hiện tượng ảo giác (hallucination) mà không cần train lại.
+3. **Fine-tuning:** Huấn luyện trực tiếp trên một tập dữ liệu chuyên biệt để cập nhật trọng số của mô hình. Thích hợp cho việc thay đổi phong cách phản hồi, định dạng đầu ra (format/style), hoặc dạy mô hình tuân thủ các quy tắc nghiệp vụ phức tạp."
